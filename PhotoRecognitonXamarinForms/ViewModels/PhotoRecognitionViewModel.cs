@@ -29,6 +29,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 });
                 if (result != null)
                 {
+                    UpdateDescription();
                     ActivityIndicator = true;
                     OnPropertyChanged(nameof(ActivityIndicator));
 
@@ -50,6 +51,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
 
                 if (result != null)
                 {
+                    UpdateDescription();
                     ActivityIndicator = true;
                     OnPropertyChanged(nameof(ActivityIndicator));
 
@@ -66,6 +68,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 }
             });
 
+
              void getImportantData()
             {
                 Description = "Description: " +  Items.Description.Captions[0].Text + "\n";
@@ -75,6 +78,11 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 foreach (Tag tag in Items.Tags)
                     Description += tag.Name.ToString() + ",\n\t";
               
+                OnPropertyChanged(nameof(Description));
+            }
+            void UpdateDescription()
+            {
+                Description = "";
                 OnPropertyChanged(nameof(Description));
             }
         }

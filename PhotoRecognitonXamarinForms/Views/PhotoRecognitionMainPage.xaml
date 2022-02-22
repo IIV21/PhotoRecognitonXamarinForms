@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PhotoRecognitonXamarinForms.Views.PhotoRecognitionMainPage"
              NavigationPage.HasNavigationBar="False">
-    
+
     <ContentPage.Content>
         <StackLayout>
          
@@ -22,7 +22,7 @@
                              BackgroundColor="{StaticResource Black}"
                              Grid.ColumnSpan="2"
                              Padding="20"/>
-                <ActivityIndicator Color="Orange" IsRunning="{Binding ActivityIndicator}"/>
+            
                 <ScrollView Grid.Row="1"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2">
@@ -33,12 +33,19 @@
                        Grid.RowSpan="2"
                        Grid.ColumnSpan="2"
                        CornerRadius="12">
-                    <Label Text="{Binding Description}"
+                        <StackLayout>
+                            
+                            <ActivityIndicator Color="Orange" IsRunning="{Binding ActivityIndicator}"
+                                       Grid.Row="2"
+                                       Grid.Column="2"/>
+                            <Label Text="{Binding Description}"
                            Grid.Row="1"
                            Grid.Column="1"/>
-                    
-                </Frame>
 
+                        </StackLayout>
+
+                    </Frame>
+                    
                 </ScrollView>
         
                 <Frame BackgroundColor="{StaticResource WhiteBlue}"
