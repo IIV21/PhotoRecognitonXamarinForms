@@ -17,7 +17,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
         public new DetailsModel Items { get; set; }
         public string Description { get;set; }
         public string Tags { get; set; }
-        public bool ActivityIndicator { get; set; }
+        public bool IsLoading { get; set; }
 
         public PhotoRecognitionViewModel()
         {
@@ -30,8 +30,8 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 if (result != null)
                 {
                     UpdateDescription();
-                    ActivityIndicator = true;
-                    OnPropertyChanged(nameof(ActivityIndicator));
+                    IsLoading = true;
+                    OnPropertyChanged(nameof(IsLoading));
 
                     var stream = await result.OpenReadAsync();
                     Image = ImageSource.FromStream(() => stream);
@@ -41,8 +41,8 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                     Items = await service.AnalyzeFromStreamAsync(result.FullPath.ToString());
                     getImportantData();
 
-                    ActivityIndicator = false;
-                    OnPropertyChanged(nameof(ActivityIndicator));
+                    IsLoading = false;
+                    OnPropertyChanged(nameof(IsLoading));
                 }
             });
             TakePhoto = new Command(async () =>
@@ -52,8 +52,8 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 if (result != null)
                 {
                     UpdateDescription();
-                    ActivityIndicator = true;
-                    OnPropertyChanged(nameof(ActivityIndicator));
+                    IsLoading = true;
+                    OnPropertyChanged(nameof(IsLoading));
 
                     var stream = await result.OpenReadAsync();
                     Image = ImageSource.FromStream(() => stream);
@@ -63,8 +63,8 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                     Items = await service.AnalyzeFromStreamAsync(result.FullPath.ToString());
                     getImportantData();
 
-                    ActivityIndicator = false;
-                    OnPropertyChanged(nameof(ActivityIndicator));
+                    IsLoading = false;
+                    OnPropertyChanged(nameof(IsLoading));
                 }
             });
 

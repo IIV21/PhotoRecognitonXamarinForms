@@ -11,13 +11,10 @@ using System.Threading.Tasks;
 
 namespace PhotoRecognitonXamarinForms.Services
 {
-    public class ComputerVisionAzureService : BaseViewModel
+    public class ComputerVisionAzureService
     {
         public static string subscriptionKey = "d2debd78a8a44cfcb5fdf851b22d0dde";
         public static string endpoint = "https://testaj.cognitiveservices.azure.com";
-
-        public DetailsModel Items { get; set; }
-        public static string returnaj { get; set; }
 
         public  async Task<DetailsModel> AnalyzeFromStreamAsync(string imageFilePath)
         {
@@ -66,14 +63,12 @@ namespace PhotoRecognitonXamarinForms.Services
                     string contentString = await response.Content.ReadAsStringAsync();
 
                     // Display the JSON response.
-                    returnaj = JToken.Parse(contentString).ToString();
-                    Items = JsonConvert.DeserializeObject<DetailsModel>(contentString);
-                    return Items;
+                    DetailsModel items = JsonConvert.DeserializeObject<DetailsModel>(contentString);
+                    return items;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine("\n" + e.Message);
                 return null;
             }
         }
