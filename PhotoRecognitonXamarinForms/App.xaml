@@ -4,13 +4,12 @@
              x:Class="PhotoRecognitonXamarinForms.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Black">#000814</Color>
-            <Color x:Key="DarkBlue">#001d3d</Color>
-            <Color x:Key="Blue">#003566</Color>
+            <Color x:Key="DarkestBlue">#000814</Color>
+            <Color x:Key="ShadyBlue">#001d3d</Color>
+            <Color x:Key="TrueBlue">#003566</Color>
             <Color x:Key="DarkYellow">#ffc300</Color>
-            <Color x:Key="Yellow">#ffd60a</Color>
-            <Color x:Key="WhiteBlue">#fca311</Color>
-            <Color x:Key="Red">#14213d</Color>
+            <Color x:Key="ShadyOrange">#fca311</Color>
+            <Color x:Key="Blueish">#14213d</Color>
             
         </ResourceDictionary>
     </Application.Resources>

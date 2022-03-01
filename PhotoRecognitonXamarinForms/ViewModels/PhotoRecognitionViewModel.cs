@@ -70,7 +70,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
 
              void getImportantData()
             {
-                Description = "Description: " +  Items.Description.Captions[0].Text + "\n";
+                Description = "Description: " +  Items.Description.Captions[0].Text + "\n\n";
                 Description += "Tags: \n\t";
                 foreach(string tag in Items.Description.Tags)
                     Description+=tag+",\n\t";
