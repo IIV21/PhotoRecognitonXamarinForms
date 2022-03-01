@@ -18,5 +18,10 @@ namespace PhotoRecognitonXamarinForms.Views
             InitializeComponent();
             BindingContext = new PhotoRecognitionViewModel();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            FullScreenImage.IsVisible = true;
+        }
     }
 }

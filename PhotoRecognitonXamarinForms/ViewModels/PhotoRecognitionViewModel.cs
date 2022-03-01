@@ -68,7 +68,6 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 }
             });
 
-
              void getImportantData()
             {
                 Description = "Description: " +  Items.Description.Captions[0].Text + "\n";
