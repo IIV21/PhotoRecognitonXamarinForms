@@ -10,7 +10,6 @@
             <Color x:Key="DarkYellow">#ffc300</Color>
             <Color x:Key="ShadyOrange">#fca311</Color>
             <Color x:Key="Blueish">#14213d</Color>
-            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

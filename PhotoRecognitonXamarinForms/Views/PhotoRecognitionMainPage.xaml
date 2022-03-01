@@ -39,21 +39,21 @@
                         Grid.ColumnSpan="2"
                         CornerRadius="12"
                         HasShadow="True">
-                        
+
                         <StackLayout>
-                            
+
                             <ActivityIndicator Color="{StaticResource Blueish}" IsRunning="{Binding IsLoading}"
                                        Grid.Row="2"
                                        Grid.Column="2"/>
-                            
+
                             <Label  Text="{Binding Description}"
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     TextColor="{StaticResource Blueish}"
                                     FontSize="20"/>
-                            
+
                         </StackLayout>
-                        
+
                     </Frame>
 
                 </ScrollView>

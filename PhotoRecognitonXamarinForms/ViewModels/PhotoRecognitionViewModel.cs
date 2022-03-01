@@ -1,8 +1,4 @@
 ﻿using PhotoRecognition.ViewModels;
-using PhotoRecognitonXamarinForms.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -15,18 +11,14 @@ namespace PhotoRecognitonXamarinForms.ViewModels
         public new ICommand TakePhoto { get; set; }
         public new ImageSource Image { get; set; }
         public new DetailsModel Items { get; set; }
-        public string Description { get;set; }
-        public string Tags { get; set; }
+        public string Description { get; set; }
         public bool IsLoading { get; set; }
 
         public PhotoRecognitionViewModel()
         {
-            PickPhoto = new Command(async () =>
+            PickPhoto = new Command(async () => // alege o fotografie si apeleaza api
             {
-                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
-                {
-                    Title = "Please pick a photo"
-                });
+                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions());
                 if (result != null)
                 {
                     UpdateDescription();
@@ -45,7 +37,7 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                     OnPropertyChanged(nameof(IsLoading));
                 }
             });
-            TakePhoto = new Command(async () =>
+            TakePhoto = new Command(async () =>  // face fotografie, o trimite la api
             {
                 var result = await MediaPicker.CapturePhotoAsync();
 
@@ -68,18 +60,19 @@ namespace PhotoRecognitonXamarinForms.ViewModels
                 }
             });
 
-             void getImportantData()
+            void getImportantData() // preia data intr-un format famili frendly
             {
-                Description = "Description: " +  Items.Description.Captions[0].Text + "\n\n";
+                Description = "Description: " + Items.Description.Captions[0].Text + "\n\n";
                 Description += "Tags: \n\t";
-                foreach(string tag in Items.Description.Tags)
-                    Description+=tag+",\n\t";
+                foreach (string tag in Items.Description.Tags)
+                    Description += tag + ",\n\t";
                 foreach (Tag tag in Items.Tags)
                     Description += tag.Name.ToString() + ",\n\t";
-              
+
                 OnPropertyChanged(nameof(Description));
             }
-            void UpdateDescription()
+
+            void UpdateDescription()  // sterge descrierea cat timp se incarca urmatoarea poza aleasa
             {
                 Description = "";
                 OnPropertyChanged(nameof(Description));
