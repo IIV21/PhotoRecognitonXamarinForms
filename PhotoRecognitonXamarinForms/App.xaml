@@ -9,8 +9,9 @@
             <Color x:Key="Blue">#003566</Color>
             <Color x:Key="DarkYellow">#ffc300</Color>
             <Color x:Key="Yellow">#ffd60a</Color>
-            <Color x:Key="WhiteBlue">#335c67</Color>
-            <Color x:Key="Red">#ff5400</Color>
+            <Color x:Key="WhiteBlue">#fca311</Color>
+            <Color x:Key="Red">#14213d</Color>
+            
         </ResourceDictionary>
     </Application.Resources>
 </Application>

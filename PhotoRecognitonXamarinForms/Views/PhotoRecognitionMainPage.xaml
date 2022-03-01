@@ -18,10 +18,10 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <ImageButton Source="{Binding Image}"
-                             BackgroundColor="{StaticResource Black}"
+                <Image Source="{Binding Image}"
+                             BackgroundColor="{StaticResource Red}"
                              Grid.ColumnSpan="2"
-                             Padding="20"/>
+                             Margin="5" />
             
                 <ScrollView Grid.Row="1"
                             Grid.RowSpan="2"
@@ -31,14 +31,17 @@
                             Grid.Row="1"
                             Grid.RowSpan="2"
                             Grid.ColumnSpan="2"
-                            CornerRadius="12">
+                            CornerRadius="12"
+                            HasShadow="True">
                         <StackLayout>
-                            <ActivityIndicator Color="Orange" IsRunning="{Binding IsLoading}"
+                            <ActivityIndicator Color="{StaticResource Red}" IsRunning="{Binding IsLoading}"
                                        Grid.Row="2"
                                        Grid.Column="2"/>
-                            <Label Text="{Binding Description}"
-                           Grid.Row="1"
-                           Grid.Column="1"/>
+                            <Label  Text="{Binding Description}"
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    TextColor="{StaticResource Red}"
+                                    FontSize="20"/>
                         </StackLayout>
                     </Frame>
                     
@@ -50,15 +53,18 @@
                        CornerRadius="10"
                        VerticalOptions="Center"
                        HorizontalOptions="CenterAndExpand"
-                       Grid.ColumnSpan="2">
+                       Grid.ColumnSpan="2"
+                       HasShadow="True">
                 </Frame>
+                
                 <Button Text="Pick a Photo"
                         BackgroundColor="{StaticResource Blue}"
                         TextColor="{StaticResource DarkYellow}"
                         Command="{Binding PickPhoto}"
                         Grid.Row="3"
                         Grid.Column="1"
-                        CornerRadius="10"/>
+                        CornerRadius="10"
+                        />
                 <Button Text="Take a Photo"
                         BackgroundColor="{StaticResource Blue}"
                         TextColor="{StaticResource DarkYellow}"
